@@ -2,10 +2,7 @@
 using namespace std;
 
 const int MAXNUM = 8;
-
 int arr[MAXNUM];
-bool visited[MAXNUM];
-
 int N, M;
 
 void solve(int count) {
@@ -18,11 +15,9 @@ void solve(int count) {
   }
 
   for (int i = 1; i <= N; ++i) {
-    if (!visited[count] && arr[count-1] <= i) {
-      visited[count] = true;
+    if (arr[count-1] <= i) {
       arr[count] = i;
       solve(count + 1);
-      visited[count] = false;
     }
   }
 }
